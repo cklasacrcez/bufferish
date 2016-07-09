@@ -6,9 +6,6 @@
   "bugs": {
     "url": "https://github.com/kawanet/bufferish/issues"
   },
-  "dependencies": {
-    "isarray": "^1.0.0"
-  },
   "devDependencies": {
     "jshint": "^2.9.2",
     "mocha": "^2.5.3",
@@ -45,6 +42,6 @@
     "webpack": "./node_modules/.bin/webpack --display-modules --optimize-minimize",
     "zuul": "./node_modules/.bin/zuul -- test/*.js",
     "zuul-local": "./node_modules/.bin/zuul --local --open -- test/*.js",
-    "zuul-local-no-buffer": "NO_BUFFER=1 npm run test-browser-local"
+    "zuul-local-no-buffer": "NO_BUFFER=1 npm run zuul-local"
   }
 }
