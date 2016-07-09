@@ -28,6 +28,21 @@ function tests() {
     });
   });
 
+  it("Bufferish.from(array)", function() {
+    var source = prepare(1);
+    assert.ok(Bufferish.isArray(Bufferish.from(source.array)));
+  });
+
+  itBuffer("Bufferish.from(buffer)", function() {
+    var source = prepare(1);
+    assert.ok(Bufferish.isBuffer(Bufferish.from(source.buffer)));
+  });
+
+  itUint8Array("Bufferish.from(uint8array)", function() {
+    var source = prepare(1);
+    assert.ok(Bufferish.isView(Bufferish.from(source.uint8array)));
+  });
+
   it("Bufferish.Array.from(src)", function() {
     getlist().forEach(function(src) {
       var buf = Bufferish.Array.from(src);
