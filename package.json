@@ -12,7 +12,8 @@
   "devDependencies": {
     "jshint": "^2.9.2",
     "mocha": "^2.5.3",
-    "webpack": "^1.13.1"
+    "webpack": "^1.13.1",
+    "zuul": "^3.10.1"
   },
   "homepage": "https://github.com/kawanet/bufferish#readme",
   "jshintConfig": {
@@ -34,10 +35,16 @@
     "url": "git+https://github.com/kawanet/bufferish.git"
   },
   "scripts": {
+    "build": "npm run webpack && INCLUDE_BUFFER=1 npm run webpack",
     "fixpack": "fixpack",
     "jshint": "./node_modules/.bin/jshint *.js* lib test",
     "mocha": "./node_modules/.bin/mocha -R spec test",
-    "test": "npm run jshint && npm run mocha",
-    "webpack": "./node_modules/.bin/webpack --display-modules --optimize-minimize"
+    "test": "if [ \"x$BROWSER\" == \"x\" ]; then npm run test-node; else npm run test-browser-local; fi",
+    "test-browser": "npm run build && npm run zuul",
+    "test-node": "npm run jshint && npm run mocha",
+    "webpack": "./node_modules/.bin/webpack --display-modules --optimize-minimize",
+    "zuul": "./node_modules/.bin/zuul -- test/*.js",
+    "zuul-local": "./node_modules/.bin/zuul --local --open -- test/*.js",
+    "zuul-local-no-buffer": "NO_BUFFER=1 npm run test-browser-local"
   }
 }

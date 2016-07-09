@@ -1,11 +1,12 @@
 #!/usr/bin/env mocha -R spec
 
-/* globals describe, it */
+/* globals describe, it, window */
 
 var assert = require("assert");
 
 var BufferishJS = "../bufferish";
-var Bufferish = this.Bufferish || require(BufferishJS);
+var Global = ("undefined" !== typeof window) ? window : ("undefined" !== typeof global) ? global : this;
+var Bufferish = Global.Bufferish || require(BufferishJS);
 var Buffer = Bufferish.original;
 var TITLE = __filename.replace(/^.*\//, "");
 

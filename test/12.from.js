@@ -1,11 +1,12 @@
 #!/usr/bin/env mocha -R spec
 
-/* globals describe, it */
+/* globals describe, it, window */
 
 var assert = require("assert");
 
 var BufferishJS = "../bufferish";
-var Bufferish = this.Bufferish || require(BufferishJS);
+var Global = ("undefined" !== typeof window) ? window : ("undefined" !== typeof global) ? global : this;
+var Bufferish = Global.Bufferish || require(BufferishJS);
 var Buffer = Bufferish.original;
 var TITLE = __filename.replace(/^.*\//, "");
 
@@ -40,7 +41,7 @@ function tests() {
   itBuffer("Bufferish.Buffer.from(src)", function() {
     getlist().forEach(function(src) {
       var buf = Bufferish.Buffer.from(src);
-      assert.ok(buf instanceof Buffer);
+      assert.ok(Buffer.isBuffer(buf));
       assert.equal(buf.length, 2);
       assert.equal(buf[0], 65);
       assert.equal(buf[1], 66);
