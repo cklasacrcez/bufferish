@@ -24,14 +24,20 @@ function tests() {
     assert.equal(buf.length, 0);
   });
 
-  it("Bufferish.concat([src])", function() {
-    getlist().forEach(function(src) {
-      src[0] = 1;
-      var buf = Bufferish.concat([src]);
-      assert.ok(buf);
-      assert.equal(buf.length, 2);
-      assert.equal(buf[0], 1);
-    });
+  // test that Bufferish.concat() respects the first argument
+  it("Bufferish.concat([array])", function() {
+    var source = prepare(1);
+    assert.ok(Bufferish.isArray(Bufferish.concat([source.array])));
+  });
+
+  itBuffer("Bufferish.concat([buffer])", function() {
+    var source = prepare(1);
+    assert.ok(Bufferish.isBuffer(Bufferish.concat([source.buffer])));
+  });
+
+  itUint8Array("Bufferish.concat([uint8array])", function() {
+    var source = prepare(1);
+    assert.ok(Bufferish.isView(Bufferish.concat([source.uint8array])));
   });
 
   it("Bufferish.concat(list)", function() {
