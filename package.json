@@ -1,0 +1,41 @@
+{
+  "name": "bufferish",
+  "description": "Some of Node.js Buffer Methods for Uint8Array and Array",
+  "version": "0.1.0",
+  "author": "@kawanet",
+  "bugs": {
+    "url": "https://github.com/kawanet/bufferish/issues"
+  },
+  "dependencies": {
+    "isarray": "^1.0.0"
+  },
+  "devDependencies": {
+    "jshint": "^2.9.2",
+    "mocha": "^2.5.3"
+  },
+  "homepage": "https://github.com/kawanet/bufferish#readme",
+  "jshintConfig": {
+    "eqnull": true,
+    "node": true,
+    "undef": true,
+    "unused": true
+  },
+  "keywords": [
+    "Array",
+    "ArrayBuffer",
+    "Buffer",
+    "Uint8Array"
+  ],
+  "license": "MIT",
+  "main": "bufferish.js",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/kawanet/bufferish.git"
+  },
+  "scripts": {
+    "fixpack": "fixpack",
+    "jshint": "./node_modules/.bin/jshint *.js* lib test",
+    "mocha": "./node_modules/.bin/mocha -R spec test",
+    "test": "npm run jshint && npm run mocha"
+  }
+}
