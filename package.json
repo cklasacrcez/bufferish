@@ -1,7 +1,7 @@
 {
   "name": "bufferish",
   "description": "Node.js Buffer Methods for Uint8Array and Array",
-  "version": "0.1.0",
+  "version": "0.1.1",
   "author": "@kawanet",
   "bugs": {
     "url": "https://github.com/kawanet/bufferish/issues"
