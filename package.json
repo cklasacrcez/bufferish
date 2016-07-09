@@ -11,7 +11,8 @@
   },
   "devDependencies": {
     "jshint": "^2.9.2",
-    "mocha": "^2.5.3"
+    "mocha": "^2.5.3",
+    "webpack": "^1.13.1"
   },
   "homepage": "https://github.com/kawanet/bufferish#readme",
   "jshintConfig": {
@@ -36,6 +37,7 @@
     "fixpack": "fixpack",
     "jshint": "./node_modules/.bin/jshint *.js* lib test",
     "mocha": "./node_modules/.bin/mocha -R spec test",
-    "test": "npm run jshint && npm run mocha"
+    "test": "npm run jshint && npm run mocha",
+    "webpack": "./node_modules/.bin/webpack --display-modules --optimize-minimize"
   }
 }
