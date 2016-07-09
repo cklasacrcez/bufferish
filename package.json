@@ -36,7 +36,7 @@
     "fixpack": "fixpack",
     "jshint": "./node_modules/.bin/jshint *.js* lib test",
     "mocha": "./node_modules/.bin/mocha -R spec test",
-    "test": "if [ -z \"$BROWSER\" ]; then npm run test-node; else npm run test-browser-local; fi",
+    "test": "if [ -z \"$BROWSER\" ]; then npm run test-node; else npm run test-browser; fi",
     "test-browser": "npm run build && npm run zuul",
     "test-node": "npm run jshint && npm run mocha",
     "webpack": "./node_modules/.bin/webpack --display-modules --optimize-minimize",
