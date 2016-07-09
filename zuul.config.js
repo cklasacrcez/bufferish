@@ -8,6 +8,7 @@ module.exports = {
   sauce_key: "19ce1f89-5564-4d4a-aabb-a350002349b1",
   name: "bufferish",
   ui: "mocha-bdd",
+  html: "test/zuul/zuul.html",
   concurrency: 4,
   scripts: [filename],
   browsers: [
