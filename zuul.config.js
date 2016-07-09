@@ -9,7 +9,10 @@ module.exports = {
   name: "bufferish",
   ui: "mocha-bdd",
   html: "test/zuul/zuul.html",
-  concurrency: 4,
+  concurrency: 3,
+  browser_retries: 2,
+  browser_output_timeout: 180,
+  browser_open_timeout: 180,
   scripts: [filename],
   browsers: [
     {name: "ie", version: "9..latest"},
