@@ -17,7 +17,7 @@ module.exports = {
   browsers: [
     {name: "ie", version: "9..latest"},
     {name: "chrome", version: "latest"},
-    {name: "firefox", version: "latest"},
+    {name: "firefox", version: "46"},
     {name: "safari", version: "7..latest"},
     {name: "iphone", version: ["7.1", "8.4", "9.3..latest"]},
     {name: "android", version: ["4.1", "4.4", "5.1..latest"]}
