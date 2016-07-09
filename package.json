@@ -1,6 +1,6 @@
 {
   "name": "bufferish",
-  "description": "Some of Node.js Buffer Methods for Uint8Array and Array",
+  "description": "Node.js Buffer Methods for Uint8Array and Array",
   "version": "0.1.0",
   "author": "@kawanet",
   "bugs": {
@@ -36,7 +36,7 @@
     "fixpack": "fixpack",
     "jshint": "./node_modules/.bin/jshint *.js* lib test",
     "mocha": "./node_modules/.bin/mocha -R spec test",
-    "test": "if [ \"x$BROWSER\" == \"x\" ]; then npm run test-node; else npm run test-browser-local; fi",
+    "test": "if [ -z \"$BROWSER\" ]; then npm run test-node; else npm run test-browser-local; fi",
     "test-browser": "npm run build && npm run zuul",
     "test-node": "npm run jshint && npm run mocha",
     "webpack": "./node_modules/.bin/webpack --display-modules --optimize-minimize",
