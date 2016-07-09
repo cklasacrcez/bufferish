@@ -1,6 +1,8 @@
 # bufferish [![Build Status](https://travis-ci.org/kawanet/bufferish.svg?branch=master)](https://travis-ci.org/kawanet/bufferish)
 
-This module provides some methods of Node.js's [Buffer API](https://nodejs.org/api/buffer.html) which work with `Uint8Array` and `Array` as well as `Buffer` instance.
+This module provides some compatible methods of Node.js's [Buffer API](https://nodejs.org/api/buffer.html)
+which work with `Uint8Array` and `Array` as well as `Buffer` instance.
+It's light-weight and just 5KB when minified without [Buffer](https://www.npmjs.com/package/buffer) shim.
 
 [![Build Status](https://saucelabs.com/browser-matrix/bufferish.svg)](https://saucelabs.com/beta/builds/edba9addceeb41ee89df3648c076a99d)
 
@@ -45,12 +47,14 @@ Bufferish.Buffer.alloc(size)
 ```
 
 It creates a new `Buffer` instance of `size` bytes.
+It's available only when `Buffer` class available.
 
 ```js
 Bufferish.Uint8Array.alloc(size)
 ```
 
 It creates a new `Uint8Array` instance of `size` bytes.
+It's available only when `Uint8Array` class available.
 
 ```js
 Bufferish.alloc(size)
@@ -68,6 +72,7 @@ It may cost less when a native copy methods is available.
 ### from(src)
 
 The `from()` method works like [Buffer.from()](https://nodejs.org/api/buffer.html#buffer_class_method_buffer_from_array).
+
 `src` is an Array-like instance such `Buffer`, `Uint8Array` or `Array`. `String` is also allowed.
 
 ```js
@@ -97,6 +102,7 @@ It creates a copied instance of one of `Buffer`, `Uint8Array` or `Array`, depend
 ### concat(list)
 
 The `concat()` method works like [Buffer.concat()](https://nodejs.org/api/buffer.html#buffer_class_method_buffer_concat_list_totallength).
+
 `list` is an `Array` which contains an Array-like instances such `Buffer`, `Uint8Array` or `Array`.
 
 ```js
@@ -124,6 +130,8 @@ Bufferish.concat(list)
 It creates a concatenated instance of one of `Buffer`, `Uint8Array` or `Array`, depending on the environment.
 
 ### Bufferish.prototype methods
+
+Those methods must be called with `call()` to perform the trick.
 
 ```js
 Bufferish.prototype.copy.call(src, target, targetStart, start, end)
@@ -157,13 +165,26 @@ It works with `Uint8Array` or `Array` as same as [Buffer.prototype.write()](http
 ### Other methods
 
 Any other methods which are not described above are not supported with the module.
-Please consult with [buffer](https://www.npmjs.com/package/buffer) module.
+Please consult with [Buffer](https://www.npmjs.com/package/buffer) shim instead.
 
 ### Installation
 
 ```sh
 npm install bufferish --save
 ```
+
+### Webpacked
+
+The standalone builds for Web browsers are also shipped.
+
+- https://rawgit.com/kawanet/bufferish/master/dist/bufferish.min.js
+
+It's minified WITHOUT [Buffer](https://www.npmjs.com/package/buffer) shim. Just 5KB.
+
+- https://rawgit.com/kawanet/bufferish/master/dist/bufferish.buffer.js
+
+It's minified WITH [Buffer](https://www.npmjs.com/package/buffer) shim. 26KB.
+`Bufferish.original` refers the shim module.
 
 ### GitHub
 
